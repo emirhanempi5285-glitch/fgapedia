@@ -1,11 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import ExamView from './pages/ExamView';
 
 function App() {
   return (
-    <Router basename="/fgapedia">
-      <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen">
         {/* TopAppBar */}
         <header className="bg-surface sticky top-0 z-50 border-b border-outline-variant/20">
           <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
@@ -55,7 +54,6 @@ function App() {
           </div>
         </footer>
       </div>
-    </Router>
   );
 }
 
