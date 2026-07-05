@@ -150,40 +150,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Featured Section Asymmetric Layout */}
-      <section className="py-24 grid md:grid-cols-2 gap-12 items-center border-t border-outline-variant/20">
-        <div className="relative h-[400px] bg-surface-container overflow-hidden group">
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
-            style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeCTtuAN1VpfxthTUn1t6DjcMw_iLtEDeM9YoPywArMng3VrrA5PX23GUrgQlZqiuhWy54BJFRq_3b-C1sFfQ1pD4jErRZHHaKioa2WgBNIK3SCp-mYN0yKh6Hp78Td99xuSY8xL2EL16t7bOZKCNGCEvh0qkY3VZB5K2TJ5y5zN3A1g5CH4LOEHzOPWemgBfrb_7mzOQtrxZSuXWnMy9LsNg6eZodLP3erwGh3-zJs6U-WRsGXKOFJtnVYUwED-cjis_YKTUKKw')" }}
-          >
-          </div>
-          <div className="absolute inset-0 bg-primary/10"></div>
-        </div>
-        <div className="space-y-6">
-          <h2 className="font-display-lg text-headline-lg">Como a curadoria acadêmica fortalece seu aprendizado.</h2>
-          <p className="font-body-lg text-secondary">
-            Não somos apenas um repositório. O FGApédia é um esforço coletivo para preservar a memória acadêmica e fornecer ferramentas analíticas para o sucesso dos alunos da UnB Gama.
-          </p>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-primary">verified</span>
-              <span className="font-body-md">Material revisado por alunos veteranos e monitores.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-primary">insights</span>
-              <span className="font-body-md">Estatísticas de recorrência de temas em avaliações passadas.</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="material-symbols-outlined text-primary">groups</span>
-              <span className="font-body-md">Espaço colaborativo para discussão de resoluções.</span>
-            </li>
-          </ul>
-          <a href="https://github.com/Guilherme115/fgapedia/blob/master/README.md" target="_blank" rel="noopener noreferrer" className="font-label-sm text-label-sm text-primary editorial-underline hover:text-secondary transition-all">
-            LEIA NOSSO MANIFESTO ACADÊMICO
-          </a>
-        </div>
-      </section>
     </div>
   );
 }
