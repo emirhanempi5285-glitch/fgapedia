@@ -8,7 +8,8 @@ function App() {
         {/* TopAppBar */}
         <header className="bg-surface sticky top-0 z-50 border-b border-outline-variant/20">
           <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-            <Link to="/" className="text-headline-md font-headline-md font-bold tracking-tighter text-primary">
+            <Link to="/" className="flex items-center gap-3 text-headline-md font-headline-md font-bold tracking-tighter text-primary">
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="FGApédia Logo" className="h-8 w-auto object-contain" />
               FGApédia
             </Link>
             <nav className="hidden md:flex items-center space-x-gutter">
