@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Download } from 'lucide-react';
 
 export default function ExamView() {
   const { id } = useParams();
@@ -21,48 +20,76 @@ export default function ExamView() {
       });
   }, [id]);
 
-  if (loading) return <div className="container" style={{ padding: '48px 24px' }}>Carregando...</div>;
-  if (!exam) return <div className="container" style={{ padding: '48px 24px' }}>Prova não encontrada.</div>;
+  if (loading) return <div className="max-w-container-max mx-auto px-margin-desktop py-stack-lg">Carregando...</div>;
+  if (!exam) return <div className="max-w-container-max mx-auto px-margin-desktop py-stack-lg">Prova não encontrada.</div>;
 
   return (
-    <div className="container" style={{ padding: '48px 24px', height: 'calc(100vh - 70px)', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '600', color: 'var(--outline)' }}>
-          <ArrowLeft size={20} /> Voltar
+    <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg flex flex-col" style={{ height: 'calc(100vh - 100px)' }}>
+      <div className="flex justify-between items-center mb-8">
+        <Link to="/" className="flex items-center gap-2 font-label-sm text-label-sm text-secondary hover:text-primary transition-colors">
+          <span className="material-symbols-outlined text-[20px]">arrow_back</span> 
+          VOLTAR PARA O ACERVO
         </Link>
-        <a href={`${import.meta.env.BASE_URL}${exam.pdfUrl.replace(/^\\//, '')}`} download className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Download size={18} /> Baixar PDF
+        <a href={`${import.meta.env.BASE_URL}${exam.pdfUrl.startsWith('/') ? exam.pdfUrl.slice(1) : exam.pdfUrl}`} download className="flex items-center gap-2 bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm hover:opacity-90 transition-all">
+          <span className="material-symbols-outlined text-[18px]">download</span> 
+          BAIXAR PDF
         </a>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '32px', flex: 1, minHeight: 0 }}>
-        <aside style={{ display: 'flex', flexDirection: 'column', gap: '24px', overflowY: 'auto' }}>
+      <div className="grid lg:grid-cols-[300px_1fr] gap-gutter flex-1 min-h-0">
+        <aside className="flex flex-col gap-6 overflow-y-auto custom-scrollbar pr-2">
           <div>
-            <h1 style={{ fontSize: '32px' }}>{exam.subject}</h1>
-            <p style={{ fontSize: '18px', color: 'var(--on-surface-variant)', marginTop: '8px' }}>{exam.examType}</p>
+            <h1 className="font-headline-lg text-headline-lg">{exam.subject}</h1>
+            <p className="font-body-lg text-secondary mt-2">{exam.examType}</p>
           </div>
           
-          <div style={{ borderTop: '1px solid var(--outline-variant)', paddingTop: '24px' }}>
-            <p><strong>Professor:</strong> {exam.professor}</p>
-            <p><strong>Semestre:</strong> {exam.semester}</p>
-            <p><strong>Dificuldade:</strong> {exam.difficulty}/5</p>
-            <p><strong>Gabarito:</strong> {exam.hasAnswerKey ? 'Sim' : 'Não'}</p>
+          <div className="border-t border-outline-variant/20 pt-6 space-y-2">
+            <p className="font-body-md"><strong className="font-bold">Professor:</strong> {exam.professor}</p>
+            <p className="font-body-md"><strong className="font-bold">Semestre:</strong> {exam.semester}</p>
+            <p className="font-body-md flex items-center gap-2">
+              <strong className="font-bold">Dificuldade:</strong>
+              <span className="flex text-primary gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <span 
+                    key={i} 
+                    className="material-symbols-outlined text-sm" 
+                    style={i < exam.difficulty ? { fontVariationSettings: "'FILL' 1" } : {}}
+                  >
+                    star
+                  </span>
+                ))}
+              </span>
+            </p>
+            <p className="font-body-md flex items-center gap-2">
+              <strong className="font-bold">Gabarito:</strong> 
+              {exam.hasAnswerKey ? (
+                <span className="flex items-center gap-1 text-green-700 font-bold text-sm">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  Sim
+                </span>
+              ) : (
+                <span className="flex items-center gap-1 text-secondary font-bold text-sm">
+                  <span className="material-symbols-outlined text-[16px]">history_edu</span>
+                  Não
+                </span>
+              )}
+            </p>
           </div>
 
           {exam.tips && (
-            <div style={{ backgroundColor: 'var(--surface-container)', padding: '16px', borderRadius: 'var(--radius-md)' }}>
-              <strong style={{ display: 'block', marginBottom: '8px' }}>Dica do Contribuidor:</strong>
-              <p style={{ fontStyle: 'italic', fontSize: '14px' }}>"{exam.tips}"</p>
+            <div className="bg-surface-container p-4 rounded border-l-2 border-primary mt-4">
+              <strong className="font-label-sm text-label-sm text-primary uppercase block mb-2">Dica de Ouro</strong>
+              <p className="text-sm italic text-secondary">"{exam.tips}"</p>
             </div>
           )}
         </aside>
 
-        <div style={{ backgroundColor: 'var(--surface-container)', borderRadius: 'var(--radius-md)', overflow: 'hidden', border: '1px solid var(--outline-variant)' }}>
+        <div className="bg-surface-container rounded-lg overflow-hidden border border-outline-variant/20 shadow-sm h-full hidden lg:block">
           <iframe 
-            src={`${import.meta.env.BASE_URL}${exam.pdfUrl.replace(/^\\//, '')}`}
+            src={`${import.meta.env.BASE_URL}${exam.pdfUrl.startsWith('/') ? exam.pdfUrl.slice(1) : exam.pdfUrl}`}
             width="100%" 
             height="100%" 
-            style={{ border: 'none' }}
+            className="border-none"
             title={`PDF da Prova de ${exam.subject}`}
           />
         </div>

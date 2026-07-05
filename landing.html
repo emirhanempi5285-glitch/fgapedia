@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FGApédia | Repositório Acadêmico de Provas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Newsreader:opsz,ital,wght@6..72,0,400;6..72,0,500;6..72,0,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf9f5",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-background": "#1c1c1a",
+                        "secondary-fixed": "#e4e2dd",
+                        "surface-container": "#f0ede9",
+                        "on-surface": "#1c1c1a",
+                        "background": "#fcf9f5",
+                        "tertiary-fixed": "#e5e2db",
+                        "surface-container-high": "#eae8e4",
+                        "on-primary-container": "#858383",
+                        "primary-fixed": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c9c6c0",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f6f3ef",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1c1b1b",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c4c7c7",
+                        "surface-tint": "#5f5e5e",
+                        "on-secondary-fixed": "#1b1c19",
+                        "primary-container": "#1c1b1b",
+                        "inverse-on-surface": "#f3f0ec",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#1c1c18",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-container": "#85847e",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "on-secondary-container": "#63635f",
+                        "surface-dim": "#dcdad6",
+                        "surface-container-highest": "#e5e2de",
+                        "secondary": "#5e5e5b",
+                        "surface-bright": "#fcf9f5",
+                        "secondary-container": "#e1dfdb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "inverse-surface": "#31302e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#474744",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "primary": "#000000",
+                        "surface-variant": "#e5e2de",
+                        "on-tertiary-fixed-variant": "#474742",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747878"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "48px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "32px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "display-lg": ["Newsreader"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Newsreader"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Newsreader"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fcf9f5;
+            color: #1c1c1a;
+            -webkit-font-smoothing: antialiased;
+        }
+        .editorial-underline {
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-thickness: 2px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f0ede9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1c1c1a;
+        }
+        .card-hover:hover {
+            background-color: #eae8e4;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-50 border-b border-outline-variant/20">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold tracking-tighter text-primary">
+                FGApédia
+            </div>
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-secondary font-medium hover:text-primary transition-colors font-label-sm text-label-sm" href="#">How to Contribute</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center gap-2 hover:bg-surface-container-high px-3 py-1.5 transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="code">code</span>
+<span class="font-label-sm text-label-sm">GitHub</span>
+</button>
+<button class="md:hidden p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="py-stack-lg md:py-24 grid md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-7">
+<h1 class="font-display-lg text-display-lg md:text-[64px] leading-tight mb-8">
+                    Encontre sua <span class="editorial-underline">próxima prova</span> e produtos de estudo.
+                </h1>
+<div class="relative group">
+<input class="w-full bg-surface-container-high border-0 border-b-2 border-primary py-6 px-4 font-body-lg text-body-lg focus:ring-0 placeholder-secondary transition-all" placeholder="Pesquisar por disciplina (ex: Cálculo 1, APC)..." type="text"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 bg-primary text-on-primary px-6 py-2 flex items-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-sm text-label-sm">BUSCAR</span>
+</button>
+</div>
+</div>
+<div class="md:col-span-4 md:col-start-9 pb-4">
+<p class="text-secondary font-body-md mb-6 leading-relaxed">
+                    O maior repositório acadêmico da FGA. Contribua com a comunidade enviando seus materiais e ajude milhares de estudantes.
+                </p>
+<button class="flex items-center gap-3 bg-transparent border border-primary px-8 py-3 font-label-sm text-label-sm hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+                    ENVIAR PROVA
+                </button>
+</div>
+</section>
+<!-- Main Content Area with Filters and Grid -->
+<div class="flex flex-col md:flex-row gap-gutter py-stack-lg border-t border-outline-variant/20">
+<!-- Filters Sidebar -->
+<aside class="w-full md:w-72 flex-shrink-0 space-y-stack-lg">
+<div class="space-y-4">
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Filtros Ativos</h3>
+<div class="space-y-6">
+<!-- Dropdown Selects -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary">Disciplina</label>
+<select class="w-full bg-surface-container border-0 border-b border-primary/20 focus:border-primary focus:ring-0 py-2 font-body-md">
+<option>Todas as Disciplinas</option>
+<option>Cálculo 1</option>
+<option>Estruturas de Dados</option>
+<option>Arquitetura de Computadores</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary">Professor</label>
+<select class="w-full bg-surface-container border-0 border-b border-primary/20 focus:border-primary focus:ring-0 py-2 font-body-md">
+<option>Qualquer Professor</option>
+<option>Edson Alves</option>
+<option>Carla Rocha</option>
+<option>Ricardo Staciarini</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-secondary">Tipo de Avaliação</label>
+<div class="flex flex-wrap gap-2 mt-2">
+<button class="px-3 py-1 bg-primary text-on-primary text-xs font-bold rounded">P1</button>
+<button class="px-3 py-1 bg-surface-container text-secondary text-xs font-bold rounded border border-outline-variant/20 hover:border-primary">P2</button>
+<button class="px-3 py-1 bg-surface-container text-secondary text-xs font-bold rounded border border-outline-variant/20 hover:border-primary">P3</button>
+<button class="px-3 py-1 bg-surface-container text-secondary text-xs font-bold rounded border border-outline-variant/20 hover:border-primary">FINAL</button>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-primary">Somente com Gabarito</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-label-sm text-label-sm text-secondary block">Dificuldade Máxima</label>
+<input class="w-full h-1 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="5" min="1" type="range"/>
+<div class="flex justify-between text-[10px] font-bold text-secondary px-1">
+<span>1/5</span>
+<span>3/5</span>
+<span>5/5</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-highest/30 rounded-lg">
+<h4 class="font-headline-md text-headline-md mb-2">Sugestão Editorial</h4>
+<p class="font-body-md text-on-surface-variant text-sm mb-4">Veja as provas mais acessadas desta semana para o curso de Engenharia de Software.</p>
+<a class="font-label-sm text-label-sm text-primary flex items-center gap-1 hover:underline" href="#">
+                        VER COLEÇÃO <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</aside>
+<!-- Cards Grid -->
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-8">
+<span class="font-label-sm text-label-sm text-secondary">EXIBINDO 24 DE 1.402 RESULTADOS</span>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container border border-primary"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
+<button class="p-2 hover:bg-surface-container"><span class="material-symbols-outlined" data-icon="list">list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container p-6 flex flex-col justify-between card-hover border border-primary/5 transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-white/50 text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest">CÁLCULO 1</span>
+<div class="flex text-primary gap-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Prova 1 - Limites e Derivadas</h2>
+<div class="space-y-1 mb-6">
+<p class="text-secondary text-sm font-medium">Prof. Ricardo Staciarini</p>
+<p class="text-on-surface-variant text-xs">2023.2 • Semestre Regular</p>
+</div>
+<div class="bg-white/40 p-4 rounded mb-6 border-l-2 border-primary">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-1">Dica de Ouro</span>
+<p class="text-sm italic text-secondary">"Foque na questão de limites laterais, ele costuma cobrar pegadinhas com funções descontínuas."</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<span class="flex items-center gap-1.5 text-xs font-bold text-success text-green-700">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                GABARITO DISPONÍVEL
+                            </span>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm hover:opacity-90 transition-all">
+                                VER PROVA
+                            </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-6 flex flex-col justify-between card-hover border border-primary/5 transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-white/50 text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest">ESTRUTURAS DE DADOS 1</span>
+<div class="flex text-primary gap-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Exame Final - Listas e Árvores</h2>
+<div class="space-y-1 mb-6">
+<p class="text-secondary text-sm font-medium">Prof. Edson Alves</p>
+<p class="text-on-surface-variant text-xs">2024.1 • Semestre Atual</p>
+</div>
+<div class="bg-white/40 p-4 rounded mb-6 border-l-2 border-primary">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-1">Dica de Ouro</span>
+<p class="text-sm italic text-secondary">"A implementação de Árvores AVL é recorrente. Pratique o código em C++ antes da prova."</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<span class="flex items-center gap-1.5 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="history_edu">history_edu</span>
+                                SEM GABARITO OFICIAL
+                            </span>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm hover:opacity-90 transition-all">
+                                VER PROVA
+                            </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-6 flex flex-col justify-between card-hover border border-primary/5 transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-white/50 text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest">ALGORITMOS</span>
+<div class="flex text-primary gap-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">P2 - Recursividade e Ordenação</h2>
+<div class="space-y-1 mb-6">
+<p class="text-secondary text-sm font-medium">Prof. Carla Rocha</p>
+<p class="text-on-surface-variant text-xs">2022.2 • Semestre Anterior</p>
+</div>
+<div class="bg-white/40 p-4 rounded mb-6 border-l-2 border-primary">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-1">Dica de Ouro</span>
+<p class="text-sm italic text-secondary">"Ela cobra muito a análise de complexidade (Big O) dos algoritmos de ordenação."</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<span class="flex items-center gap-1.5 text-xs font-bold text-green-700">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                                GABARITO DISPONÍVEL
+                            </span>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm hover:opacity-90 transition-all">
+                                VER PROVA
+                            </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container p-6 flex flex-col justify-between card-hover border border-primary/5 transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-white/50 text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest">ARQUITETURA DE COMP.</span>
+<div class="flex text-primary gap-0.5">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2">Prova Substitutiva - Pipeline e Cache</h2>
+<div class="space-y-1 mb-6">
+<p class="text-secondary text-sm font-medium">Prof. Tiago Alves</p>
+<p class="text-on-surface-variant text-xs">2023.1 • Semestre Anterior</p>
+</div>
+<div class="bg-white/40 p-4 rounded mb-6 border-l-2 border-primary">
+<span class="font-label-sm text-label-sm text-primary uppercase block mb-1">Dica de Ouro</span>
+<p class="text-sm italic text-secondary">"Entenda bem as políticas de substituição de cache (LRU, FIFO). Sempre cai."</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+<span class="flex items-center gap-1.5 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="history_edu">history_edu</span>
+                                SEM GABARITO OFICIAL
+                            </span>
+<button class="bg-primary text-on-primary px-6 py-2 font-label-sm text-label-sm hover:opacity-90 transition-all">
+                                VER PROVA
+                            </button>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-stack-lg flex justify-center items-center gap-4">
+<button class="w-10 h-10 border border-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<span class="font-label-sm text-label-sm">PÁGINA 1 DE 58</span>
+<button class="w-10 h-10 border border-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Featured Section Asymmetric Layout -->
+<section class="py-24 grid md:grid-cols-2 gap-12 items-center border-t border-outline-variant/20">
+<div class="relative h-[400px] bg-surface-container overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A vintage black and white photograph of an empty university lecture hall with rows of wooden desks and a large chalkboard covered in complex mathematical equations. Soft natural light streams through tall arched windows, creating long shadows and a studious, archival mood consistent with a scholarly editorial aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeCTtuAN1VpfxthTUn1t6DjcMw_iLtEDeM9YoPywArMng3VrrA5PX23GUrgQlZqiuhWy54BJFRq_3b-C1sFfQ1pD4jErRZHHaKioa2WgBNIK3SCp-mYN0yKh6Hp78Td99xuSY8xL2EL16t7bOZKCNGCEvh0qkY3VZB5K2TJ5y5zN3A1g5CH4LOEHzOPWemgBfrb_7mzOQtrxZSuXWnMy9LsNg6eZodLP3erwGh3-zJs6U-WRsGXKOFJtnVYUwED-cjis_YKTUKKw')">
+</div>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+<div class="space-y-6">
+<h2 class="font-display-lg text-headline-lg">Como a curadoria acadêmica fortalece seu aprendizado.</h2>
+<p class="font-body-lg text-secondary">
+                    Não somos apenas um repositório. O FGApédia é um esforço coletivo para preservar a memória acadêmica e fornecer ferramentas analíticas para o sucesso dos alunos da UnB Gama.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<span class="font-body-md">Material revisado por alunos veteranos e monitores.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="insights">insights</span>
+<span class="font-body-md">Estatísticas de recorrência de temas em avaliações passadas.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+<span class="font-body-md">Espaço colaborativo para discussão de resoluções.</span>
+</li>
+</ul>
+<button class="font-label-sm text-label-sm text-primary editorial-underline hover:text-secondary transition-all">
+                    LEIA NOSSO MANIFESTO ACADÊMICO
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container w-full py-stack-lg px-margin-mobile md:px-margin-desktop mt-auto border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md text-primary">FGApédia</div>
+<p class="text-secondary font-label-sm text-label-sm max-w-xs uppercase tracking-wider">
+                    © 2024 FGApédia. Academic Resource Repository. Criado por e para alunos da FGA.
+                </p>
+</div>
+<div class="flex flex-wrap gap-x-gutter gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-label-sm text-label-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-label-sm text-label-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-label-sm text-label-sm" href="#">GitHub Repository</a>
+<a class="text-on-surface-variant hover:text-primary transition-opacity font-label-sm text-label-sm" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for search focus
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.01]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.01]');
+        });
+    </script>
+</body></html>

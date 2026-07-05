@@ -22,12 +22,11 @@ O script `scripts/process-issue.js` possui um estado de "Perfeição Técnica" e
 
 ## 4. Diretrizes de Frontend
 - **Stack:** React + Vite.
-- **Estilização:** CSS Vanilla ou CSS Modules. **Não utilize TailwindCSS** (a menos que o usuário solicite explicitamente uma mudança de stack).
-- **Design:** O projeto deve ter um visual extremamente "Premium". 
-  - Foco em **Dark Mode** moderno.
-  - Uso de **Glassmorphism** (efeitos de vidro, transparências suaves).
-  - Micro-animações e efeitos visuais impactantes ao passar o mouse ou abrir filtros.
-  - Tipografia moderna (como Inter, Roboto ou Outfit).
+- **Estilização:** **TailwindCSS** (conforme nova decisão de arquitetura) combinado com CSS Modules/Vanilla para ajustes ultra-específicos, se necessário.
+- **Design:** O projeto utiliza o design system **Academic Editorial** gerado pelo Google Stitch.
+  - Estética "Ink on Paper" (Fundo cor creme, fontes serifadas).
+  - Tipografia: Newsreader (Títulos) e Hanken Grotesk (Corpo).
+  - Sem sombras intensas, utilizando apenas bordas de 1px e hierarquia visual refinada.
 - **Funcionalidades Core:** A interface precisará consumir o `exams.json` e implementar filtros complexos (Professor, Matéria, Semestre, Dificuldade).
 
 ## 5. Regras de Conduta do Agente
